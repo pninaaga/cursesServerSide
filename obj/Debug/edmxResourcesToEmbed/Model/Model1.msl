@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FurtherTraining3ModelStoreContainer" CdmEntityContainer="FurtherTraining3Entities4">
+    <EntitySetMapping Name="AvailableTeacherTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.AvailableTeacherTbl">
+        <MappingFragment StoreEntitySet="AvailableTeacherTbl">
+          <ScalarProperty Name="IdAvailable" ColumnName="IdAvailable" />
+          <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+          <ScalarProperty Name="DayInWeekT" ColumnName="DayInWeekT" />
+          <ScalarProperty Name="FromHourT" ColumnName="FromHourT" />
+          <ScalarProperty Name="UntilHourT" ColumnName="UntilHourT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connect">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.Connect">
+        <MappingFragment StoreEntitySet="Connect">
+          <ScalarProperty Name="IdConnect" ColumnName="IdConnect" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+          <ScalarProperty Name="MailToConnect" ColumnName="MailToConnect" />
+          <ScalarProperty Name="PasswordC" ColumnName="PasswordC" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursesTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.CoursesTbl">
+        <MappingFragment StoreEntitySet="CoursesTbl">
+          <ScalarProperty Name="IdCourse" ColumnName="IdCourse" />
+          <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+          <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
+          <ScalarProperty Name="DayInWeekC" ColumnName="DayInWeekC" />
+          <ScalarProperty Name="FromHourC" ColumnName="FromHourC" />
+          <ScalarProperty Name="UntilHourC" ColumnName="UntilHourC" />
+          <ScalarProperty Name="MinStudents" ColumnName="MinStudents" />
+          <ScalarProperty Name="MaxStudents" ColumnName="MaxStudents" />
+          <ScalarProperty Name="IdTypeCourse" ColumnName="IdTypeCourse" />
+          <ScalarProperty Name="AmountHour" ColumnName="AmountHour" />
+          <ScalarProperty Name="PricePerHour" ColumnName="PricePerHour" />
+          <ScalarProperty Name="AmountStudentRegistration" ColumnName="AmountStudentRegistration" />
+          <ScalarProperty Name="OpenCourse" ColumnName="OpenCourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registration">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="IdRegistration" ColumnName="IdRegistration" />
+          <ScalarProperty Name="IdCourse" ColumnName="IdCourse" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentsTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.StudentsTbl">
+        <MappingFragment StoreEntitySet="StudentsTbl">
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="FirstNameS" ColumnName="FirstNameS" />
+          <ScalarProperty Name="LastNameS" ColumnName="LastNameS" />
+          <ScalarProperty Name="AddressS" ColumnName="AddressS" />
+          <ScalarProperty Name="PhoneS" ColumnName="PhoneS" />
+          <ScalarProperty Name="EmailS" ColumnName="EmailS" />
+          <ScalarProperty Name="TzS" ColumnName="TzS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentWaitToRegistration">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.StudentWaitToRegistration">
+        <MappingFragment StoreEntitySet="StudentWaitToRegistration">
+          <ScalarProperty Name="IdStudentWaitToRegistration" ColumnName="IdStudentWaitToRegistration" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IdCours" ColumnName="IdCours" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectOfTeacherTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.SubjectOfTeacherTbl">
+        <MappingFragment StoreEntitySet="SubjectOfTeacherTbl">
+          <ScalarProperty Name="IdSubjectOfTeacher" ColumnName="IdSubjectOfTeacher" />
+          <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+          <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.SubjectTbl">
+        <MappingFragment StoreEntitySet="SubjectTbl">
+          <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="IdFatherSubject" ColumnName="IdFatherSubject" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="CourseExplainText" ColumnName="CourseExplainText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.TeacherTbl">
+        <MappingFragment StoreEntitySet="TeacherTbl">
+          <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+          <ScalarProperty Name="FirstNameT" ColumnName="FirstNameT" />
+          <ScalarProperty Name="LastNameT" ColumnName="LastNameT" />
+          <ScalarProperty Name="AddressT" ColumnName="AddressT" />
+          <ScalarProperty Name="PhoneT" ColumnName="PhoneT" />
+          <ScalarProperty Name="EmailT" ColumnName="EmailT" />
+          <ScalarProperty Name="TzT" ColumnName="TzT" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Prefer" ColumnName="Prefer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCourseTbl">
+      <EntityTypeMapping TypeName="FurtherTraining3Model.TypeCourseTbl">
+        <MappingFragment StoreEntitySet="TypeCourseTbl">
+          <ScalarProperty Name="IdTypeCourse" ColumnName="IdTypeCourse" />
+          <ScalarProperty Name="TypeCourse" ColumnName="TypeCourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

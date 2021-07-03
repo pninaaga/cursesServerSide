@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FurtherTraining3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AvailableTeacherTbl">
+    <Key>
+      <PropertyRef Name="IdAvailable" />
+    </Key>
+    <Property Name="IdAvailable" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTeacher" Type="smallint" Nullable="false" />
+    <Property Name="DayInWeekT" Type="smallint" Nullable="false" />
+    <Property Name="FromHourT" Type="time" Precision="7" />
+    <Property Name="UntilHourT" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Connect">
+    <Key>
+      <PropertyRef Name="IdConnect" />
+    </Key>
+    <Property Name="IdConnect" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tz" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="MailToConnect" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="PasswordC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="IdStudent" Type="smallint" />
+  </EntityType>
+  <EntityType Name="CoursesTbl">
+    <Key>
+      <PropertyRef Name="IdCourse" />
+    </Key>
+    <Property Name="IdCourse" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTeacher" Type="smallint" />
+    <Property Name="IdSubject" Type="smallint" Nullable="false" />
+    <Property Name="DayInWeekC" Type="smallint" Nullable="false" />
+    <Property Name="FromHourC" Type="time" Precision="7" />
+    <Property Name="UntilHourC" Type="time" Precision="7" />
+    <Property Name="MinStudents" Type="smallint" Nullable="false" />
+    <Property Name="MaxStudents" Type="smallint" Nullable="false" />
+    <Property Name="IdTypeCourse" Type="smallint" />
+    <Property Name="AmountHour" Type="smallint" Nullable="false" />
+    <Property Name="PricePerHour" Type="smallint" Nullable="false" />
+    <Property Name="AmountStudentRegistration" Type="smallint" Nullable="false" />
+    <Property Name="OpenCourse" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="IdRegistration" />
+    </Key>
+    <Property Name="IdRegistration" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCourse" Type="smallint" Nullable="false" />
+    <Property Name="IdStudent" Type="smallint" Nullable="false" />
+    <Property Name="RegistrationDate" Type="date" />
+  </EntityType>
+  <EntityType Name="StudentsTbl">
+    <Key>
+      <PropertyRef Name="IdStudent" />
+    </Key>
+    <Property Name="IdStudent" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstNameS" Type="varchar" MaxLength="15" />
+    <Property Name="LastNameS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AddressS" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneS" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailS" Type="varchar" MaxLength="30" />
+    <Property Name="TzS" Type="varchar" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentWaitToRegistration">
+    <Key>
+      <PropertyRef Name="IdStudentWaitToRegistration" />
+    </Key>
+    <Property Name="IdStudentWaitToRegistration" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tz" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="IdCours" Type="int" Nullable="false" />
+    <Property Name="IdStudent" Type="smallint" />
+  </EntityType>
+  <EntityType Name="SubjectOfTeacherTbl">
+    <Key>
+      <PropertyRef Name="IdSubjectOfTeacher" />
+    </Key>
+    <Property Name="IdSubjectOfTeacher" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTeacher" Type="smallint" Nullable="false" />
+    <Property Name="IdSubject" Type="smallint" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SubjectTbl">
+    <Key>
+      <PropertyRef Name="IdSubject" />
+    </Key>
+    <Property Name="IdSubject" Type="smallint" Nullable="false" />
+    <Property Name="SubjectName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="IdFatherSubject" Type="smallint" />
+    <Property Name="Picture" Type="varchar" MaxLength="20" />
+    <Property Name="CourseExplainText" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="TeacherTbl">
+    <Key>
+      <PropertyRef Name="IdTeacher" />
+    </Key>
+    <Property Name="IdTeacher" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstNameT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="LastNameT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AddressT" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailT" Type="varchar" MaxLength="30" />
+    <Property Name="TzT" Type="varchar" MaxLength="9" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Prefer" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeCourseTbl">
+    <Key>
+      <PropertyRef Name="IdTypeCourse" />
+    </Key>
+    <Property Name="IdTypeCourse" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeCourse" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Available__IdTea__403A8C7D">
+    <End Role="TeacherTbl" Type="Self.TeacherTbl" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AvailableTeacherTbl" Type="Self.AvailableTeacherTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Principal>
+      <Dependent Role="AvailableTeacherTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connect__IdStude__4F7CD00D">
+    <End Role="StudentsTbl" Type="Self.StudentsTbl" Multiplicity="0..1" />
+    <End Role="Connect" Type="Self.Connect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentsTbl">
+        <PropertyRef Name="IdStudent" />
+      </Principal>
+      <Dependent Role="Connect">
+        <PropertyRef Name="IdStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CoursesTb__IdSub__45F365D3">
+    <End Role="SubjectTbl" Type="Self.SubjectTbl" Multiplicity="1" />
+    <End Role="CoursesTbl" Type="Self.CoursesTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectTbl">
+        <PropertyRef Name="IdSubject" />
+      </Principal>
+      <Dependent Role="CoursesTbl">
+        <PropertyRef Name="IdSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CoursesTb__IdTea__44FF419A">
+    <End Role="TeacherTbl" Type="Self.TeacherTbl" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CoursesTbl" Type="Self.CoursesTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Principal>
+      <Dependent Role="CoursesTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CoursesTb__IdTyp__46E78A0C">
+    <End Role="TypeCourseTbl" Type="Self.TypeCourseTbl" Multiplicity="0..1" />
+    <End Role="CoursesTbl" Type="Self.CoursesTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCourseTbl">
+        <PropertyRef Name="IdTypeCourse" />
+      </Principal>
+      <Dependent Role="CoursesTbl">
+        <PropertyRef Name="IdTypeCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IdCou__4BAC3F29">
+    <End Role="CoursesTbl" Type="Self.CoursesTbl" Multiplicity="1" />
+    <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursesTbl">
+        <PropertyRef Name="IdCourse" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="IdCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__IdStu__4CA06362">
+    <End Role="StudentsTbl" Type="Self.StudentsTbl" Multiplicity="1" />
+    <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentsTbl">
+        <PropertyRef Name="IdStudent" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="IdStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentWa__IdStu__52593CB8">
+    <End Role="StudentsTbl" Type="Self.StudentsTbl" Multiplicity="0..1" />
+    <End Role="StudentWaitToRegistration" Type="Self.StudentWaitToRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentsTbl">
+        <PropertyRef Name="IdStudent" />
+      </Principal>
+      <Dependent Role="StudentWaitToRegistration">
+        <PropertyRef Name="IdStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubjectOf__IdSub__3D5E1FD2">
+    <End Role="SubjectTbl" Type="Self.SubjectTbl" Multiplicity="1" />
+    <End Role="SubjectOfTeacherTbl" Type="Self.SubjectOfTeacherTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectTbl">
+        <PropertyRef Name="IdSubject" />
+      </Principal>
+      <Dependent Role="SubjectOfTeacherTbl">
+        <PropertyRef Name="IdSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubjectOf__IdTea__3C69FB99">
+    <End Role="TeacherTbl" Type="Self.TeacherTbl" Multiplicity="1" />
+    <End Role="SubjectOfTeacherTbl" Type="Self.SubjectOfTeacherTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Principal>
+      <Dependent Role="SubjectOfTeacherTbl">
+        <PropertyRef Name="IdTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubjectTb__IdFat__398D8EEE">
+    <End Role="SubjectTbl" Type="Self.SubjectTbl" Multiplicity="0..1" />
+    <End Role="SubjectTbl1" Type="Self.SubjectTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectTbl">
+        <PropertyRef Name="IdSubject" />
+      </Principal>
+      <Dependent Role="SubjectTbl1">
+        <PropertyRef Name="IdFatherSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FurtherTraining3ModelStoreContainer">
+    <EntitySet Name="AvailableTeacherTbl" EntityType="Self.AvailableTeacherTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connect" EntityType="Self.Connect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoursesTbl" EntityType="Self.CoursesTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentsTbl" EntityType="Self.StudentsTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentWaitToRegistration" EntityType="Self.StudentWaitToRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectOfTeacherTbl" EntityType="Self.SubjectOfTeacherTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectTbl" EntityType="Self.SubjectTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherTbl" EntityType="Self.TeacherTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCourseTbl" EntityType="Self.TypeCourseTbl" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Available__IdTea__403A8C7D" Association="Self.FK__Available__IdTea__403A8C7D">
+      <End Role="TeacherTbl" EntitySet="TeacherTbl" />
+      <End Role="AvailableTeacherTbl" EntitySet="AvailableTeacherTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connect__IdStude__4F7CD00D" Association="Self.FK__Connect__IdStude__4F7CD00D">
+      <End Role="StudentsTbl" EntitySet="StudentsTbl" />
+      <End Role="Connect" EntitySet="Connect" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CoursesTb__IdSub__45F365D3" Association="Self.FK__CoursesTb__IdSub__45F365D3">
+      <End Role="SubjectTbl" EntitySet="SubjectTbl" />
+      <End Role="CoursesTbl" EntitySet="CoursesTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CoursesTb__IdTea__44FF419A" Association="Self.FK__CoursesTb__IdTea__44FF419A">
+      <End Role="TeacherTbl" EntitySet="TeacherTbl" />
+      <End Role="CoursesTbl" EntitySet="CoursesTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CoursesTb__IdTyp__46E78A0C" Association="Self.FK__CoursesTb__IdTyp__46E78A0C">
+      <End Role="TypeCourseTbl" EntitySet="TypeCourseTbl" />
+      <End Role="CoursesTbl" EntitySet="CoursesTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IdCou__4BAC3F29" Association="Self.FK__Registrat__IdCou__4BAC3F29">
+      <End Role="CoursesTbl" EntitySet="CoursesTbl" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__IdStu__4CA06362" Association="Self.FK__Registrat__IdStu__4CA06362">
+      <End Role="StudentsTbl" EntitySet="StudentsTbl" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentWa__IdStu__52593CB8" Association="Self.FK__StudentWa__IdStu__52593CB8">
+      <End Role="StudentsTbl" EntitySet="StudentsTbl" />
+      <End Role="StudentWaitToRegistration" EntitySet="StudentWaitToRegistration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubjectOf__IdSub__3D5E1FD2" Association="Self.FK__SubjectOf__IdSub__3D5E1FD2">
+      <End Role="SubjectTbl" EntitySet="SubjectTbl" />
+      <End Role="SubjectOfTeacherTbl" EntitySet="SubjectOfTeacherTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubjectOf__IdTea__3C69FB99" Association="Self.FK__SubjectOf__IdTea__3C69FB99">
+      <End Role="TeacherTbl" EntitySet="TeacherTbl" />
+      <End Role="SubjectOfTeacherTbl" EntitySet="SubjectOfTeacherTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubjectTb__IdFat__398D8EEE" Association="Self.FK__SubjectTb__IdFat__398D8EEE">
+      <End Role="SubjectTbl" EntitySet="SubjectTbl" />
+      <End Role="SubjectTbl1" EntitySet="SubjectTbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
